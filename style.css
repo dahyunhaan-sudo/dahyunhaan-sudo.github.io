@@ -1,0 +1,102 @@
+@font-face {
+  font-family: "myfont";
+  src: url("fonts/myfont.otf") format("opentype");
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #85c237;
+  font-family: "myfont";
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* =====================
+   sidebar
+===================== */
+.sidebar {
+  position: fixed;
+  left: 40px;
+  top: 40px;
+  width: 220px;
+  z-index: 20;
+}
+
+.title {
+  font-size: 28px;
+  line-height: 0.95;
+  margin: 0 0 40px 0;
+}
+
+.menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-item {
+  margin-bottom: 12px;
+}
+
+.menu-item a {
+  text-decoration: none;
+  color: black;
+  font-size: 14px;
+  opacity: 0.6;
+  display: inline-block;
+  transition: opacity 0.2s ease, transform 0.2s ease, letter-spacing 0.2s ease;
+}
+
+.menu-item:hover a,
+.menu-item.active a {
+  opacity: 1;
+}
+
+.menu-item.active a {
+  text-decoration: underline;
+  letter-spacing: 2px;
+  transform: rotate(5deg);
+}
+
+/* =====================
+   images
+===================== */
+.window {
+  position: fixed;
+  width: 200px;
+  height: auto;
+  cursor: pointer;
+  z-index: 5;
+}
+
+/* =====================
+   positions
+===================== */
+.answeringmachine {
+  top: 100px;
+  left: 500px;
+}
+
+.diary {
+  top: 240px;
+  right: 80px;
+}
+
+.enpointe {
+  top: 360px;
+  right: 360px;
+}
+
+.balletterminology {
+  top: 20px;
+  right: 220px;
+}
+
+.soooozip {
+  bottom: 120px;
+  left: 400px;
+}

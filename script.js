@@ -1,18 +1,25 @@
+/* =========================
+menu hover + external links
+========================= */
+
 const menuItems = document.querySelectorAll(".menu-item");
 
 menuItems.forEach((item) => {
+
   const link = item.querySelector("a");
   const img = item.querySelector("img");
 
-  if (!link || !img) return;
+  if (!img) return;
 
   const originalSrc = img.getAttribute("src");
   const hoverSrc = img.getAttribute("data-hover");
 
-  if (!hoverSrc) return;
+  /* =====================
+  hover effect
+  ===================== */
 
   function activate() {
-    img.setAttribute("src", hoverSrc);
+    if (hoverSrc) img.setAttribute("src", hoverSrc);
     item.classList.add("active");
   }
 
@@ -27,7 +34,29 @@ menuItems.forEach((item) => {
   img.addEventListener("mouseenter", activate);
   img.addEventListener("mouseleave", deactivate);
 
+
+  /* =====================
+  클릭 시 github pages 이동
+  ===================== */
+
   img.addEventListener("click", () => {
-    window.location.href = link.getAttribute("href");
+
+    /* menu-item 클래스 중 menu- 로 시작하는 거 찾기 */
+    const menuClass = [...item.classList].find(cls =>
+      cls.startsWith("menu-")
+    );
+
+    if (!menuClass) return;
+
+    /* menu-answeringmachine -> answeringmachine */
+    const pageName = menuClass.replace("menu-", "");
+
+    /* 이동 주소 */
+    const url =
+      "https://dahyunhaan-sudo.github.io/" + pageName;
+
+    window.location.href = url;
+
   });
+
 });
